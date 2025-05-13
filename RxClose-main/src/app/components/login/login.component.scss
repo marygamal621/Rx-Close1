@@ -23,7 +23,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background:#0d2e41;
   backdrop-filter: blur(2px);
 }
 
@@ -41,13 +41,13 @@
 }
 
 button {
-  background: linear-gradient(9.01deg, #0150B7 -12.42%, #B2BBC7 162.96%);
+  background: linear-gradient(9.01deg, #022648 -12.42%, #B2BBC7 162.96%);
   color: white;
   font-family: 'Inter';
   cursor: pointer;
   border: 0;
   &:hover{
-    background: linear-gradient(162.96deg, #0150B7 -12.42%, #B2BBC7  150.1%);
+    background: linear-gradient(162.96deg, #020a15 -12.42%, #B2BBC7  150.1%);
 
   }
 }
