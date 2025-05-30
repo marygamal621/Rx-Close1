@@ -1,9 +1,13 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, withInMemoryScrolling, withHashLocation } from '@angular/router';
-
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'; // ✅ لازم نستورده هنا
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes, withInMemoryScrolling({scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled'}), withHashLocation()), provideClientHydration(withEventReplay())]
+  providers: [
+    provideRouter(routes),
+    provideAnimations(),
+    importProvidersFrom(HttpClientModule) // ✅ هنا الإضافة الفعلية
+  ]
 };

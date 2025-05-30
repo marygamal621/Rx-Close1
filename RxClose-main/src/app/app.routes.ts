@@ -11,16 +11,16 @@ import { CartListComponent } from './features/cart/components/cart-list/cart-lis
 import { CaregorylistComponent } from './features/category/caregorylist/caregorylist.component';
 import { ConvertAiComponent } from './features/ai/convert-ai/convert-ai.component';
 import { ProductDetailsComponent } from './features/product-details/product-details.component';
-
-
-
+import { CheckoutComponent } from './checkout/checkout.component';
 import { ProfileComponent } from './profile/profile.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'auth/home', pathMatch: 'full' },
-  { path: 'signin', component: LoginComponent },
+   { path: 'signin', component: LoginComponent },
   { path: 'signup', component: RegisterComponent },
-  
+   
+
   {
     path: 'auth',
     component: AuthLayoutComponent,
@@ -39,9 +39,8 @@ export const routes: Routes = [
       ]},
       { path: 'product-details', component: ProductDetailsComponent },
       { path: 'convert', component: ConvertAiComponent },
-
-      // ✅ أهو هنا بنضيف البروفايل
-      { path: 'profile', component: ProfileComponent },
+      { path: 'checkout', component: CheckoutComponent }, // ✅ تم نقلها هنا
+      { path: 'profile', component: ProfileComponent }
     ]
   },
 

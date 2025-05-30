@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { trigger, transition, animate, style } from '@angular/animations';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../auth.service';
+import { log } from 'console';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +25,7 @@ import { CommonModule } from '@angular/common';
 })
 export class RegisterComponent {
   registerForm!: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,private AuthService :AuthService ) {}
 
   
   ngOnInit() {
@@ -40,14 +42,21 @@ export class RegisterComponent {
 
 
   onSubmit() {
-    if (this.registerForm.valid) {
-      console.log('Form data:', this.registerForm.value);
-      // Add your registration API call here
-      this.registerForm.reset();
+  //   if (this.registerForm.valid) {
+  //     console.log('Form data:', this.registerForm.value);
+  //     // Add your registration API call here
+  //     this.registerForm.reset();
+  //   }
+  const data =this.registerForm.value
+  this.AuthService.signUp(data).subscribe(
+    (res) =>{
+      console.log(res);
     }
-  }
 
-  get userName() { return this.registerForm.get('userName'); }
-  get email() { return this.registerForm.get('email'); }
-  get password() { return this.registerForm.get('password'); }
+  )
+}
+
+  // get userName() { return this.registerForm.get('userName'); }
+  // get email() { return this.registerForm.get('email'); }
+  // get password() { return this.registerForm.get('password'); }
 }
